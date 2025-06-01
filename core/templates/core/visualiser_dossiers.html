@@ -1,0 +1,90 @@
+<style>
+  body {
+    background-color: #f0fdf4;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 2px solid #a5d6a7;
+  }
+
+  h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  thead {
+    background-color: #2e7d32;
+    color: white;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tbody tr:hover {
+    background-color: #e0f2f1;
+  }
+
+  .empty-message {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+    padding: 20px 0;
+  }
+</style>
+
+<div class="container">
+  <h2>Mon Dossier Médical</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom d'utilisateur</th>
+        <th>Groupe Sanguin</th>
+        <th>Allergie</th>
+        <th>Maladie Chronique</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dossier in dossiers %}
+      <tr>
+        <td>
+  {% if dossier.patient %}
+    {{ dossier.patient.username }}
+  {% else %}
+    Inconnu
+  {% endif %}
+</td>
+        <td>{{ dossier.groupe_sanguin }}</td>
+        <td>{{ dossier.alergie }}</td>
+        <td>{{ dossier.maladie_chronique }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="4" class="empty-message">Aucun dossier trouvé.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,98 @@
+/* static/css/signup.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #4a6cf7; /* Bleu neutre */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-container {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 40px; /* 👈 Ajout de cette ligne */
+}
+
+.signup-container h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.signup-container form .form-row {
+  margin-bottom: 1.2rem;
+}
+
+.signup-container form .form-row.hidden {
+  display: none;
+}
+
+.signup-container label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.signup-container input:focus,
+.signup-container select:focus {
+  outline: none;
+  border-color: #6b73ff;
+}
+
+.signup-container .errorlist {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.signup-container button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  background: #6b73ff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.signup-container button[type="submit"]:hover {
+  background: #000dff;
+}
+
+.signup-container p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.signup-container p a {
+  color: #6b73ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-container p a:hover {
+  text-decoration: underline;
+}

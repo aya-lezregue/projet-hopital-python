@@ -1,0 +1,112 @@
+<!-- hospital_system/templates/core/creer_dossier.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer Dossier Médical</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #c8e6c9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+
+        select:focus, input:focus, textarea:focus {
+            border-color: #81c784;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #388e3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2e7d32;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #388e3c;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Créer un dossier médical</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <label for="patient">Sélectionner un patient :</label>
+            <select name="patient" id="patient" required>
+                {% for patient in patients %}
+                    <option value="{{ patient.id }}" {% if selected_patient and patient.id == selected_patient.id %}selected{% endif %}>
+                        {{ patient.username }}
+                    </option>
+                {% empty %}
+                    <option disabled>Aucun patient disponible</option>
+                {% endfor %}
+            </select>
+
+            {% if form %}
+                {{ form.as_p }}
+            {% else %}
+                <p style="color: red;">Veuillez sélectionner un patient pour créer un dossier.</p>
+            {% endif %}
+
+            <button type="submit">Créer le dossier</button>
+        </form>
+
+        <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+    </div>
+</body>
+</html>

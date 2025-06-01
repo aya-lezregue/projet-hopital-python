@@ -1,0 +1,83 @@
+<style>
+  body {
+    background-color: #f0fdf4;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    border: 2px solid #a5d6a7;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  h2 {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  label {
+    font-weight: 600;
+    color: #333;
+  }
+
+  input, select, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 20px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #1b5e20;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 16px;
+    color: #2e7d32;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-align: center;
+  }
+
+  .back-link:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+  }
+</style>
+
+<div class="container">
+  <h2>Prendre un rendez-vous avec Dr {{ medecin.first_name }} {{ medecin.last_name }}</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Valider le rendez-vous</button>
+  </form>
+
+  <a href="{% url 'specialites' %}" class="back-link">← Retour</a>
+</div>

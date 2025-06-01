@@ -1,0 +1,82 @@
+<style>
+  body {
+    background-color: #fefefe;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .factures-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 2px solid #f1c40f;
+  }
+
+  h2 {
+    text-align: center;
+    color: #f39c12;
+    margin-bottom: 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  thead {
+    background-color: #f39c12;
+    color: white;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #fcf3cf;
+  }
+
+  tbody tr:hover {
+    background-color: #fef9e7;
+  }
+
+  .empty-message {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+    padding: 20px 0;
+  }
+</style>
+
+<div class="factures-container">
+  <h2>Mes Factures</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Consultation</th>
+        <th>Montant</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for facture in factures %}
+      <tr>
+        <td>{{ facture.date_fact }}</td>
+        <td>{{ facture.consultation.rendezvous }}</td>
+        <td>{{ facture.montant_tot }} DH</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="3" class="empty-message">Aucune facture trouvée.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

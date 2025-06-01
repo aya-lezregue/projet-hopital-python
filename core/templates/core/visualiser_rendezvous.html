@@ -1,0 +1,77 @@
+<style>
+  body {
+    background-color: #f0fdf4;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid #a5d6a7;
+  }
+
+  h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 14px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #2e7d32;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #e0f2f1;
+  }
+
+  .empty-message {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+    padding: 20px 0;
+  }
+</style>
+
+<div class="container">
+  <h2>Mes Rendez-vous</h2>
+  <table>
+    <tr>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Heure</th>
+    </tr>
+    {% for rdv in rendezvous %}
+    <tr>
+      <td>{{ rdv.patient.first_name }} {{ rdv.patient.last_name }}</td>
+      <td>{{ rdv.date }}</td>
+      <td>{{ rdv.heure }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3" class="empty-message">Aucun rendez-vous trouvé.</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>

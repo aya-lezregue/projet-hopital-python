@@ -1,0 +1,35 @@
+<div style="max-width: 600px; margin: auto; padding: 40px;">
+  <h2 style="text-align: center; margin-bottom: 30px;">
+    Bienvenue, Docteur {{ request.user.first_name }}
+  </h2>
+
+  <a href="{% url 'creer_dossier_medical' %}">
+    <button style="padding: 15px; width: 100%; margin-bottom: 15px; background-color: #3498db; color: white; border: none; border-radius: 6px;">
+      📄 Créer un dossier médical
+    </button>
+  </a>
+
+  <a href="{% url 'visualiser_rendezvous' %}">
+    <button style="padding: 15px; width: 100%; margin-bottom: 15px; background-color: #2ecc71; color: white; border: none; border-radius: 6px;">
+      📅 Visualiser les rendez-vous
+    </button>
+  </a>
+
+  <a href="{% url 'visualiser_dossiers' %}">
+    <button style="padding: 15px; width: 100%; margin-bottom: 15px; background-color: #9b59b6; color: white; border: none; border-radius: 6px;">
+      🗂️ Visualiser les dossiers médicaux
+    </button>
+  </a>
+
+  <a href="{% url 'creer_consultation' %}">
+    <button style="padding: 15px; width: 100%; margin-bottom: 15px; background-color: #f39c12; color: white; border: none; border-radius: 6px;">
+      📝 Créer une consultation
+    </button>
+  </a>
+
+  <a href="{% url 'visualiser_consultations' %}">
+    <button style="padding: 15px; width: 100%; margin-bottom: 15px; background-color: #1abc9c; color: white; border: none; border-radius: 6px;">
+      📋 Visualiser les consultations
+    </button>
+  </a>
+</div>

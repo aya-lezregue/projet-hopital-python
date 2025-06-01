@@ -1,0 +1,72 @@
+<style>
+  body {
+    background-color: #f0fdf4;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .dashboard-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    border: 2px solid #a5d6a7;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+
+  .dashboard-container h2 {
+    color: #2e7d32;
+    margin-bottom: 30px;
+  }
+
+  .dashboard-container a {
+    display: block;
+    margin: 12px 0;
+    text-decoration: none;
+  }
+
+  .dashboard-container button {
+    padding: 15px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  .dashboard-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-blue { background-color: #2196F3; }
+  .btn-orange { background-color: #f39c12; }
+  .btn-purple { background-color: #9b59b6; }
+  .btn-green { background-color: #27ae60; }
+</style>
+
+<div class="dashboard-container">
+  <h2>Bienvenue, {{ user.first_name }} !</h2>
+
+  <a href="{% url 'mes_rendezvous' %}">
+    <button class="btn-blue">📋 Mes rendez-vous</button>
+  </a>
+
+  <a href="{% url 'mes_factures' %}">
+    <button class="btn-orange">💳 Mes factures</button>
+  </a>
+
+  <a href="{% url 'mon_dossier_medical' %}">
+    <button class="btn-purple">📁 Mon dossier médical</button>
+  </a>
+
+  <a href="{% url 'specialites' %}">
+    <button class="btn-green">🩺 Prendre rendez-vous</button>
+  </a>
+</div>

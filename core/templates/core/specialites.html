@@ -1,0 +1,66 @@
+<style>
+  body {
+    background-color: #f0fdf4;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .specialite-section {
+    text-align: center;
+    margin: 40px auto;
+  }
+
+  .specialite-section h2 {
+    font-size: 32px;
+    color: #1b5e20;
+    margin-bottom: 30px;
+  }
+
+  .specialite-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .specialite-card {
+    background-color: white;
+    border: 2px solid #a5d6a7;
+    border-radius: 10px;
+    padding: 20px 30px;
+    min-width: 180px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+
+  .specialite-card:hover {
+    background-color: #c8e6c9;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+
+  .specialite-card button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e7d32;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+</style>
+
+<div class="specialite-section">
+  <h2>Choisissez une spécialité</h2>
+
+  <div class="specialite-container">
+    {% for specialite in specialites %}
+      <form method="get" action="{% url 'medecins_par_specialite' specialite %}">
+        <div class="specialite-card">
+          <button type="submit">{{ specialite }}</button>
+        </div>
+      </form>
+    {% endfor %}
+  </div>
+</div>

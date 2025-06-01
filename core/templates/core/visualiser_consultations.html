@@ -1,0 +1,21 @@
+<div style="max-width: 800px; margin: auto; padding: 40px;">
+    <h2 style="text-align: center;">Liste des consultations</h2>
+
+    {% if consultations %}
+      <ul style="list-style: none; padding: 0;">
+        {% for consultation in consultations %}
+          <li style="background: #f1f1f1; padding: 20px; margin-bottom: 15px; border-radius: 6px;">
+            <p><strong>Date :</strong> {{ consultation.rendezvous.date }}</p>
+            <p><strong>Patient :</strong> {{ consultation.rendezvous.patient.get_full_name }}</p>
+            <p><strong>Diagnostic :</strong> {{ consultation.diagnostic }}</p>
+            <p><strong>Traitement :</strong> {{ consultation.traitement_prescrit }}</p>
+            <p><strong>Médicament :</strong> {{ consultation.medicament }}</p>
+            <p><strong>Durée :</strong> {{ consultation.duree }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Aucune consultation trouvée.</p>
+    {% endif %}
+  </div>
+
